@@ -16,6 +16,9 @@ permissions:
 env:
   APP_NAME: "T3D Servo Configurator"
   EXE_BASENAME: "T3DServoConfigurator"
+  # VERSION: use the pushed tag name when this run is triggered by a tag push;
+  # otherwise use a build-style version with the run number.
+  VERSION: ${{ (startsWith(github.ref, 'refs/tags/') && github.ref_name) || format('V0.0.0-build{0}', github.run_number) }}
 
 jobs:
   build-windows:
@@ -53,14 +56,15 @@ jobs:
             Get-ChildItem dist | ForEach-Object { Write-Host "dist contains: $_" }
             exit 1
           }
-          $zipName = "${{ env.APP_NAME }}-${{ github.run_number }}.zip"
+          # Use package filename that includes the VERSION
+          $zipName = "${{ env.APP_NAME }}-${{ env.VERSION }}.zip"
           if (Test-Path $zipName) { Remove-Item $zipName }
           # Include exe and config folder (if present) so users can edit config next to the exe
           $paths = @()
           $paths += $exePath
           if (Test-Path "config") {
-            # include all files under config in the zip preserving folder
-            $paths += "config\*"
+            # include the config folder so it appears as a 'config' directory next to the exe inside the zip
+            $paths += "config"
           }
           Compress-Archive -Path $paths -DestinationPath $zipName
           Write-Host "Prepared artifact: $zipName"
@@ -69,10 +73,13 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         with:
-          tag_name: release-${{ github.run_number }}
-          release_name: "${{ env.APP_NAME }} ${{ github.run_number }}"
+          # Use computed VERSION: when the workflow is triggered by pushing a tag,
+          # that tag name will be used (for example 'V1.0.0'). For normal commits
+          # the generated name will be like 'V0.0.0-build123'.
+          tag_name: ${{ env.VERSION }}
+          release_name: "${{ env.APP_NAME }} ${{ env.VERSION }}"
           body: |
-            Automated build for run ${{ github.run_number }}.
+            Automated build for run ${{ github.run_number }}. Version: ${{ env.VERSION }}.
           draft: false
           prerelease: false
           # If you prefer to use a personal token (for example when running from a fork),
@@ -84,8 +91,8 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: "${{ env.APP_NAME }}-${{ github.run_number }}.zip"
-          asset_name: "${{ env.APP_NAME }}-${{ github.run_number }}.zip"
+          asset_path: "${{ env.APP_NAME }}-${{ env.VERSION }}.zip"
+          asset_name: "${{ env.APP_NAME }}-${{ env.VERSION }}.zip"
           asset_content_type: application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -93,5 +100,5 @@ jobs:
       - name: Upload workflow artifact (backup)
         uses: actions/upload-artifact@v4
         with:
-          name: "${{ env.APP_NAME }}-${{ github.run_number }}"
-          path: "${{ env.APP_NAME }}-${{ github.run_number }}.zip"
+          name: "${{ env.APP_NAME }}-${{ env.VERSION }}"
+          path: "${{ env.APP_NAME }}-${{ env.VERSION }}.zip"
