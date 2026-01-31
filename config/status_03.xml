@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServoDataSet>
+  <!-- Status list for function 0x03 (addresses 0x1000 .. 0x1027) -->
+  <ServoStatusTable>
+    <id>4096</id>
+    <name>d-SPD</name>
+    <description>Motor speed (r/min)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>r/min</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4097</id>
+    <name>orig_pos_lo</name>
+    <description>Original position command low 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4098</id>
+    <name>orig_pos_hi</name>
+    <description>Original position command high 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4099</id>
+    <name>cmd_pos_lo</name>
+    <description>Position command low 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4100</id>
+    <name>cmd_pos_hi</name>
+    <description>Position command high 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4101</id>
+    <name>cur_pos_lo</name>
+    <description>Current motor position low 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4102</id>
+    <name>cur_pos_hi</name>
+    <description>Current motor position high 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4103</id>
+    <name>pos_dev_lo</name>
+    <description>Position deviation low 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4104</id>
+    <name>pos_dev_hi</name>
+    <description>Position deviation high 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4105</id>
+    <name>motor_torque</name>
+    <description>Motor torque (%)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>%</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4106</id>
+    <name>peak_torque</name>
+    <description>Peak torque (%)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>%</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4107</id>
+    <name>inst_current</name>
+    <description>Instantaneous current (0.1A)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>0.1A</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4108</id>
+    <name>peak_current</name>
+    <description>Peak current (0.1A)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>0.1A</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4109</id>
+    <name>cmd_freq</name>
+    <description>Position command frequency (0.1kHz)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>0.1kHz</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4110</id>
+    <name>speed_cmd</name>
+    <description>Speed instruction (r/min)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>r/min</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4111</id>
+    <name>torque_cmd</name>
+    <description>Torque instruction (%)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>%</units>
+  </ServoStatusTable>
+  <!-- continue as needed up to 0x1027 -->
+</ServoDataSet>

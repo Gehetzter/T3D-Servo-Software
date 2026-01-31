@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServoDataSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServoStatusTable>
+		<id>0</id>
+		<name>d-SPD</name>
+		<description>Actual motor speed</description>
+		<value>0</value>
+		<type>3</type>
+		<units>1r/min </units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>1</id>
+		<name>d-Cs1</name>
+		<description>External speed command</description>
+		<value>0</value>
+		<type>0</type>
+		<units>1r/min  </units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>2</id>
+		<name>d-Cs2</name>
+		<description>Position loop outputs speed command</description>
+		<value>0</value>
+		<type>0</type>
+		<units>S:1r/min  </units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>3</id>
+		<name>d-IqR</name>
+		<description>Torque current command value</description>
+		<value>0</value>
+		<type>3</type>
+		<units>0.01A</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>4</id>
+		<name>d-IqF</name>
+		<description>Torque current actual value</description>
+		<value>0</value>
+		<type>0</type>
+		<units>0.01A</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>5</id>
+		<name>d-IdR</name>
+		<description>D-axis current command value</description>
+		<value>0</value>
+		<type>0</type>
+		<units>0.01A</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>6</id>
+		<name>d-IdF</name>
+		<description>D-axis current actual value</description>
+		<value>0</value>
+		<type>0</type>
+		<units>0.01A</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>7</id>
+		<name>d-i</name>
+		<description>Actual load current</description>
+		<value>0</value>
+		<type>3</type>
+		<units>0.01A</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>8</id>
+		<name>d-U</name>
+		<description>Actual output voltage</description>
+		<value>0</value>
+		<type>0</type>
+		<units>PU Value</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>9</id>
+		<name>d-POS</name>
+		<description>Encoder current position (Pulse)</description>
+		<value>0</value>
+		<type>13</type>
+		<units>Pulse</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>11</id>
+		<name>d-PO2</name>
+		<description>Encoder 2 current position (Pulse)</description>
+		<value>0</value>
+		<type>10</type>
+		<units>Pulse</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>13</id>
+		<name>d-CPO</name>
+		<description>Position command (Pulse)</description>
+		<value>0</value>
+		<type>10</type>
+		<units>Pulse</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>15</id>
+		<name>d-EPO</name>
+		<description>Position deviation (Pulse)</description>
+		<value>0</value>
+		<type>10</type>
+		<units>Pulse</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>17</id>
+		<name>d-pinc</name>
+		<description>Incremental position command(Pulse)</description>
+		<value>0</value>
+		<type>0</type>
+		<units>Pulse</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>18</id>
+		<name>d-PoE</name>
+		<description>Electrical angle</description>
+		<value>0</value>
+		<type>0</type>
+		<units>0.1 degree</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>19</id>
+		<name>d-APO</name>
+		<description>Single turn absolute position of the rotor</description>
+		<value>0</value>
+		<type>0</type>
+		<units>Pulse</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>20</id>
+		<name>d-AP2</name>
+		<description>Single turn absolute position of the rotor 2</description>
+		<value>0</value>
+		<type>0</type>
+		<units>Pulse</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>21</id>
+		<name>d-ABS</name>
+		<description>Absolute encoder single turn position</description>
+		<value>0</value>
+		<type>10</type>
+		<units>Digital Value</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>23</id>
+		<name>d-MPO</name>
+		<description>Absolute encoder multi turn position</description>
+		<value>0</value>
+		<type>0</type>
+		<units>Digital Value</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>24</id>
+		<name>d-IO</name>
+		<description>Servo I/O port status</description>
+		<value>0</value>
+		<type>0</type>
+		<units>Digital Value</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>25</id>
+		<name>d-Err</name>
+		<description>Alarm code</description>
+		<value>0</value>
+		<type>0</type>
+		<units>Digital Value</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>26</id>
+		<name>d-Iq</name>
+		<description>Q-axis current actual value</description>
+		<value>0</value>
+		<type>0</type>
+		<units>PU Value</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>27</id>
+		<name>d-Ia</name>
+		<description>A-phase current actual value</description>
+		<value>0</value>
+		<type>0</type>
+		<units>PU Value</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>28</id>
+		<name>d-eSPD</name>
+		<description>Speed deviation</description>
+		<value>0</value>
+		<type>0</type>
+		<units>0.1rpm</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>29</id>
+		<name>d-RE0</name>
+		<description>Reserve status 0</description>
+		<value>0</value>
+		<type>0</type>
+		<units>Pulse</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>30</id>
+		<name>d-RE1</name>
+		<description>Reserve status 1</description>
+		<value>0</value>
+		<type>0</type>
+		<units>IO</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>31</id>
+		<name>d-RE2</name>
+		<description>Reserve status 2</description>
+		<value>0</value>
+		<type>0</type>
+		<units>Temp</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>32</id>
+		<name>d-RE3</name>
+		<description>Reserve status 3</description>
+		<value>0</value>
+		<type>0</type>
+		<units>Vdc</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>33</id>
+		<name>d-RE4</name>
+		<description>Reserve status 4</description>
+		<value>0</value>
+		<type>0</type>
+		<units>ZCNT</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>34</id>
+		<name>d-RE5</name>
+		<description>Reserve status 5</description>
+		<value>0</value>
+		<type>0</type>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>35</id>
+		<name>d-RE6</name>
+		<description>Reserve status 6</description>
+		<value>0</value>
+		<type>0</type>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>36</id>
+		<name>d-RE7</name>
+		<description>Reserve status 7</description>
+		<value>0</value>
+		<type>0</type>
+		<units>Ia</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>37</id>
+		<name>d-RE8</name>
+		<description>Reserve status 8</description>
+		<value>0</value>
+		<type>0</type>
+		<units>Ic</units>
+	</ServoStatusTable>
+	<ServoStatusTable>
+		<id>38</id>
+		<name>d-RE9</name>
+		<description>Reserve status 9</description>
+		<value>0</value>
+		<type>0</type>
+		<units>An</units>
+	</ServoStatusTable>
+</ServoDataSet>

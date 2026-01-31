@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServoDataSet>
+  <!-- Status list for function 0x04 (addresses 0x0000 .. 0x002D) -->
+  <ServoStatusTable>
+    <id>0</id>
+    <name>d-SPD</name>
+    <description>Motor speed (r/min)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>r/min</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>1</id>
+    <name>orig_pos_lo</name>
+    <description>Original position command (input pulse) low 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>2</id>
+    <name>orig_pos_hi</name>
+    <description>Original position command (input pulse) high 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>3</id>
+    <name>cmd_pos_lo</name>
+    <description>Position command (pulse) low 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>4</id>
+    <name>cmd_pos_hi</name>
+    <description>Position command (pulse) high 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>5</id>
+    <name>cur_pos_lo</name>
+    <description>Current motor position (pulse) low 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>6</id>
+    <name>cur_pos_hi</name>
+    <description>Current motor position (pulse) high 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>7</id>
+    <name>pos_dev_lo</name>
+    <description>Position deviation (pulse) low 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>8</id>
+    <name>pos_dev_hi</name>
+    <description>Position deviation (pulse) high 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>9</id>
+    <name>motor_torque</name>
+    <description>Motor torque (%)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>%</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>10</id>
+    <name>peak_torque</name>
+    <description>Peak torque (%)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>%</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>11</id>
+    <name>inst_current</name>
+    <description>Instantaneous motor current (0.1A units)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>0.1A</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>12</id>
+    <name>peak_current</name>
+    <description>Peak motor current (0.1A units)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>0.1A</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>13</id>
+    <name>cmd_freq</name>
+    <description>Position command pulse frequency (0.1kHz)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>0.1kHz</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>14</id>
+    <name>speed_cmd</name>
+    <description>Speed instruction (r/min)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>r/min</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>15</id>
+    <name>torque_cmd</name>
+    <description>Torque instruction (%)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>%</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>16</id>
+    <name>speed_analog</name>
+    <description>Speed analog command voltage (mV)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>mV</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>17</id>
+    <name>torque_analog</name>
+    <description>Torque analog command voltage (mV)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>mV</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>18</id>
+    <name>di_status</name>
+    <description>Input terminal DI status (bits)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>bits</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>19</id>
+    <name>do_status</name>
+    <description>Output terminal DO status (bits)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>bits</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>20</id>
+    <name>enc_abs_lo</name>
+    <description>Motor encoder absolute position low 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>21</id>
+    <name>enc_abs_hi</name>
+    <description>Motor encoder absolute position high 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>22</id>
+    <name>multi_loop</name>
+    <description>Multi-loop encoder position</description>
+    <value>0</value>
+    <type>0</type>
+    <units>value</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>23</id>
+    <name>regen_load</name>
+    <description>Regenerative brake load rate (%)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>%</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>24</id>
+    <name>avg_load</name>
+    <description>Average load rate (%)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>%</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>25</id>
+    <name>out_voltage</name>
+    <description>Output voltage (%)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>%</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>26</id>
+    <name>alarm_code</name>
+    <description>Alarm code</description>
+    <value>0</value>
+    <type>0</type>
+    <units>code</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>27</id>
+    <name>speed_01</name>
+    <description>Motor speed (0.1 r/min)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>0.1r/min</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>28</id>
+    <name>enc2_lo</name>
+    <description>Second encoder position low 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>29</id>
+    <name>enc2_hi</name>
+    <description>Second encoder position high 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>31</id>
+    <name>abs_lo</name>
+    <description>Absolute position low 16 bits (32-bit combined)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>32</id>
+    <name>abs_hi</name>
+    <description>Absolute position high 16 bits (32-bit combined)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>34</id>
+    <name>rel_fb_lo</name>
+    <description>Relative encoder feedback low 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>35</id>
+    <name>rel_fb_hi</name>
+    <description>Relative encoder feedback high 16 bits</description>
+    <value>0</value>
+    <type>0</type>
+    <units>pulse</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>36</id>
+    <name>fb_value</name>
+    <description>Motor feedback value (relative encoder)</description>
+    <value>0</value>
+    <type>0</type>
+    <units>value</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>37</id>
+    <name>radiator_temp</name>
+    <description>Drive radiator temperature</description>
+    <value>0</value>
+    <type>0</type>
+    <units>C</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>38</id>
+    <name>internal_temp</name>
+    <description>Module internal temperature</description>
+    <value>0</value>
+    <type>0</type>
+    <units>C</units>
+  </ServoStatusTable>
+  <ServoStatusTable>
+    <id>39</id>
+    <name>dc_bus</name>
+    <description>DC bus voltage</description>
+    <value>0</value>
+    <type>0</type>
+    <units>V</units>
+  </ServoStatusTable>
+  <!-- placeholders up to 0x002D can be added as needed -->
+</ServoDataSet>
