@@ -1,0 +1,87 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+env:
+  APP_NAME: "T3D Servo Configurator"
+  EXE_BASENAME: "T3DServoConfigurator"
+
+jobs:
+  build-windows:
+    name: Build Windows EXE and publish release
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          if (Test-Path requirements.txt) { pip install -r requirements.txt } else { pip install pyinstaller }
+
+      - name: Install PyInstaller
+        run: |
+          pip install pyinstaller
+
+      - name: Build exe with PyInstaller
+        run: |
+          # Build one-file exe; use a safe exe basename without spaces
+          pyinstaller --noconfirm --onefile --name "${{ env.EXE_BASENAME }}" src/main.py
+
+      - name: Prepare artifact
+        run: |
+          $exeName = "${{ env.EXE_BASENAME }}.exe"
+          $exePath = Join-Path -Path "dist" -ChildPath $exeName
+          if (-not (Test-Path $exePath)) {
+            Write-Host "Expected exe not found: $exePath"
+            Get-ChildItem dist | ForEach-Object { Write-Host "dist contains: $_" }
+            exit 1
+          }
+          $zipName = "${{ env.APP_NAME }}-${{ github.run_number }}.zip"
+          if (Test-Path $zipName) { Remove-Item $zipName }
+          # Include exe and config folder (if present) so users can edit config next to the exe
+          $paths = @()
+          $paths += $exePath
+          if (Test-Path "config") {
+            # include all files under config in the zip preserving folder
+            $paths += "config\*"
+          }
+          Compress-Archive -Path $paths -DestinationPath $zipName
+          Write-Host "Prepared artifact: $zipName"
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: release-${{ github.run_number }}
+          release_name: "${{ env.APP_NAME }} ${{ github.run_number }}"
+          body: |
+            Automated build for run ${{ github.run_number }}.
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: "${{ env.APP_NAME }}-${{ github.run_number }}.zip"
+          asset_name: "${{ env.APP_NAME }}-${{ github.run_number }}.zip"
+          asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload workflow artifact (backup)
+        uses: actions/upload-artifact@v4
+        with:
+          name: "${{ env.APP_NAME }}-${{ github.run_number }}"
+          path: "${{ env.APP_NAME }}-${{ github.run_number }}.zip"
