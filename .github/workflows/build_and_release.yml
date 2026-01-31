@@ -5,6 +5,14 @@ on:
     branches: [ main ]
   workflow_dispatch: {}
 
+# Grant explicit permissions so the workflow can create releases and upload assets.
+# If this workflow is triggered from a forked PR, the automatic GITHUB_TOKEN has reduced
+# privileges and cannot create releases. In that case, trigger the workflow from main
+# or provide a personal access token in repository secrets named `PERSONAL_TOKEN`.
+permissions:
+  contents: write   # needed to create tags/releases and upload release assets
+  packages: write
+
 env:
   APP_NAME: "T3D Servo Configurator"
   EXE_BASENAME: "T3DServoConfigurator"
@@ -67,6 +75,8 @@ jobs:
             Automated build for run ${{ github.run_number }}.
           draft: false
           prerelease: false
+          # If you prefer to use a personal token (for example when running from a fork),
+          # set `token: ${{ secrets.PERSONAL_TOKEN }}` in the inputs and add a secret named PERSONAL_TOKEN.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
