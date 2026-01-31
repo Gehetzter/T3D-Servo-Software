@@ -1,16 +1,10 @@
-# RS485 Servo GUI
-
-This small tool connects to T3D servo drives over RS-485 using Modbus‑like frames, loads parameters from an XML file, and opens a tab per drive with parameter read/write functions.
-
-HLTNC provides ServoTuning_V1.00_English.exe for this purpose but you can only connect to one drive with it and baud rate settings are limited.
-
-Installation
-T3D Servo Software
 # T3D Servo Software
 
 Overview
 --------
-T3D Servo Software is a desktop application written in Python that provides a graphical interface to communicate with servo drives over an RS-485 (Modbus-like) link. The application is intended for parameter inspection, parameter editing, and reading runtime status information from multiple drives.
+T3D Servo Software is a desktop application written in Python that provides a graphical interface to communicate with T3D servo drives over an RS-485 (Modbus-like) link. The application is intended for parameter inspection, parameter editing, and reading runtime status information from multiple drives.
+
+HLTNC provides ServoTuning_V1.00_English.exe for this purpose, but you can only connect to one drive at a time and baud rate settings are limited.
 
 Key features
 ------------
