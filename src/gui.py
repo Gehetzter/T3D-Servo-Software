@@ -86,6 +86,11 @@ class DriveTab:
         self.tk_parent = tk_parent
         self.enabled = False
         self._close_cb = close_callback
+        # Diagnostic: print how many parameters were passed to this drive tab
+        try:
+            print(f"Drive {self.drive_id}: {len(self.params)} parameters")
+        except Exception:
+            pass
         self._build_ui()
 
     def _build_ui(self):
@@ -530,10 +535,10 @@ class DriveTab:
 
 
 class App:
-    def __init__(self, root, xml_path):
+    def __init__(self, root, xml_path, transport_debug: bool = False):
         self.root = root
         self.root.title('RS485 Servo GUI')
-        self.transport = SerialTransport()
+        self.transport = SerialTransport(debug=bool(transport_debug))
         self.params = load_parameters(xml_path)
         # determine description column width (characters) based on longest description
         try:

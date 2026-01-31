@@ -1,6 +1,7 @@
 import threading
 import time
 import serial
+from datetime import datetime
 
 # Transport constants
 # Bits per character on the serial line (start + data + parity + stop)
@@ -26,9 +27,20 @@ def compute_crc(data: bytes) -> int:
 
 
 class SerialTransport:
-    def __init__(self):
+    def __init__(self, debug: bool = False):
         self.ser = None
         self.lock = threading.Lock()
+        self.debug = bool(debug)
+
+    def enable_debug(self, enabled: bool = True):
+        self.debug = bool(enabled)
+
+    def _fmt_bytes(self, data: bytes) -> str:
+        return ' '.join(f"{b:02X}" for b in data)
+
+    def _log_hex(self, direction: str, data: bytes):
+        ts = datetime.now().strftime("%H:%M:%S.%f")
+        print(f"{ts} {direction} : {self._fmt_bytes(data)}")
 
     def open(self, port, baudrate, parity):
         if self.ser and self.ser.is_open:
@@ -63,6 +75,11 @@ class SerialTransport:
                 pass
             self.ser.write(request)
             self.ser.flush()
+            if self.debug:
+                try:
+                    self._log_hex('COM ->', request)
+                except Exception:
+                    pass
 
             if not expect_response:
                 return b''
@@ -90,6 +107,11 @@ class SerialTransport:
                 byte_num = header[2]
                 data = self._read_exact(byte_num + 2)
                 resp = header + data
+                if self.debug:
+                    try:
+                        self._log_hex('COM <-', resp)
+                    except Exception:
+                        pass
                 if not self._check_crc(resp):
                     raise IOError('CRC mismatch')
                 return resp
@@ -98,12 +120,22 @@ class SerialTransport:
                 byte_num = header[2]
                 data = self._read_exact(byte_num + 2)
                 resp = header + data
+                if self.debug:
+                    try:
+                        self._log_hex('COM <-', resp)
+                    except Exception:
+                        pass
                 if not self._check_crc(resp):
                     raise IOError('CRC mismatch')
                 return resp
             elif cmd == 0x06:
                 rest = self._read_exact(4 + 2)
                 resp = header + rest
+                if self.debug:
+                    try:
+                        self._log_hex('COM <-', resp)
+                    except Exception:
+                        pass
                 if not self._check_crc(resp):
                     raise IOError('CRC mismatch')
                 return resp
@@ -120,6 +152,11 @@ class SerialTransport:
                             break
                         time.sleep(0.001)
                 resp = header + buf
+                if self.debug:
+                    try:
+                        self._log_hex('COM <-', resp)
+                    except Exception:
+                        pass
                 if len(resp) >= 3 and self._check_crc(resp):
                     return resp
                 else:
